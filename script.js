@@ -15,3 +15,28 @@ if (menuToggle && nav) {
   }));
 }
 document.getElementById('year').textContent = new Date().getFullYear();
+
+
+/* Project enquiry: prepare a WhatsApp draft for the visitor to review */
+const inquiryForm = document.getElementById('project-inquiry');
+if (inquiryForm) {
+  inquiryForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!inquiryForm.reportValidity()) return;
+    const formData = new FormData(inquiryForm);
+    const name = String(formData.get('name') || '').trim();
+    const business = String(formData.get('business') || '').trim();
+    const project = String(formData.get('project') || '').trim();
+    const details = String(formData.get('details') || '').trim();
+    const lines = [
+      'Hi Nexora Technologies, I would like to discuss a project.',
+      '',
+      'Name: ' + name,
+      business ? 'Business: ' + business : '',
+      'Project type: ' + project,
+      details ? 'Project details: ' + details : ''
+    ].filter(Boolean);
+    const url = 'https://wa.me/917330804540?text=' + encodeURIComponent(lines.join('\n'));
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+}
