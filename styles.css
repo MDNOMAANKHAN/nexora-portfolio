@@ -360,3 +360,38 @@ body:after{width:260px;height:260px;right:-140px;top:68%;background:#00bfe8;opac
  .contact-details>div{padding-bottom:8px;border-bottom:1px solid rgba(160,195,230,.12)}
 }
 @media(prefers-reduced-motion:reduce){.contact-panel:after{animation:none}}
+
+
+
+/* NEXORA — compatibility and overflow repair for cached/legacy form markup */
+.contact,.contact *{min-width:0}
+.contact{width:100%;max-width:100%;overflow:clip}
+.inquiry-panel{width:100%;max-width:100%;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}
+.inquiry-form{width:100%;max-width:100%;display:grid;grid-template-columns:minmax(0,1fr);align-content:start;gap:10px}
+.inquiry-form>label{display:block;width:100%;margin:5px 0 0;line-height:1.45}
+.inquiry-form>input,.inquiry-form>select,.inquiry-form>textarea{display:block;width:100%;max-width:100%;min-height:49px;margin:0 0 8px}
+.inquiry-form>textarea{min-height:120px}
+.inquiry-form>.inquiry-submit{display:inline-flex;width:auto;max-width:100%;margin:8px 0 0}
+.inquiry-form>.form-note{display:block;width:100%;max-width:100%;margin:3px 0 0;line-height:1.7}
+.contact-details{width:100%;max-width:100%;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.contact-details>*{min-width:0!important;max-width:100%;overflow-wrap:anywhere}
+.footer{width:100%;max-width:100%;min-width:0;overflow:hidden;gap:16px}
+.footer>*{min-width:0;max-width:100%}
+@media(max-width:900px){
+ .inquiry-panel{grid-template-columns:minmax(0,1fr)}
+ .contact-details{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .contact-details>*{min-width:0!important}
+}
+@media(max-width:680px){
+ .inquiry-panel{grid-template-columns:minmax(0,1fr);padding:23px 17px}
+ .inquiry-form{grid-template-columns:minmax(0,1fr);gap:9px}
+ .inquiry-form>label{margin-top:8px}
+ .inquiry-form>input,.inquiry-form>select,.inquiry-form>textarea{margin-bottom:4px}
+ .inquiry-form>.inquiry-submit{width:100%;justify-self:stretch}
+ .contact-details{grid-template-columns:minmax(0,1fr);gap:13px;padding:20px 17px}
+ .contact-details>*{min-width:0!important;width:100%}
+ .footer{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:14px;padding:22px 18px}
+ .footer-brand{grid-column:1}
+ .footer>a[href="#home"]{grid-column:2;justify-self:end}
+ .footer small{grid-column:1/-1;width:100%;order:initial}
+}
