@@ -44,7 +44,7 @@ if (inquiryForm) {
 
 /* Fluid glass tap feedback: electric-blue contour + soft light ripple */
 (() => {
-  const selector = 'a,button,.project-card,.service-row,.process-grid>div,.value-strip>div,.product-tile,.case-card,.trust-grid article,.float-card';
+  const selector = 'a,button,.project-card,.service-row,.process-grid>div,.value-strip>div,.product-tile,.solution-card,.case-card,.trust-grid article,.float-card';
   const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll(selector).forEach((element) => {
     element.classList.add('nexora-interactive');
