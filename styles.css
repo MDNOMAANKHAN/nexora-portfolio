@@ -82,4 +82,25 @@ body:after{width:260px;height:260px;right:-140px;top:68%;background:#00bfe8;opac
 .contact-panel{box-shadow:0 28px 80px #0005,inset 0 1px 0 #ffffff2c,inset 0 -1px 0 #8bcaff12}
 @supports(padding:max(0px)){.site-header{top:max(0px,env(safe-area-inset-top))}}
 @media(hover:none){.button-primary:hover,.project-card:hover,.service-row:hover,.process-grid>div:hover,.value-strip>div:hover{transform:none}.button-primary:active,.project-card:active,.service-row:active{transform:scale(.985)}}
-@media(prefers-reduced-motion:reduce){.float-card,.orbit,.gradient-text,.core:after{animation:none!important} } 
+@media(prefers-reduced-motion:reduce){.float-card,.orbit,.gradient-text,.core:after{animation:none!important} }
+
+/* NEXORA — Enhanced Expo glass touch glow */
+:root{--touch-blue:rgba(28,137,255,.42);--touch-cyan:rgba(22,211,245,.3)}
+.button,.nav-cta,.project-card,.service-row,.process-grid>div,.value-strip>div,.open-demo{position:relative;isolation:isolate;overflow:hidden}
+.button:before,.nav-cta:before,.project-card:before,.service-row:before,.process-grid>div:before,.value-strip>div:before,.open-demo:before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--glow-x,50%) var(--glow-y,50%),rgba(110,213,255,.24),transparent 62%);transition:opacity .25s ease}
+.button:after,.nav-cta:after,.project-card:after,.service-row:after,.process-grid>div:after,.value-strip>div:after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;opacity:0;background:linear-gradient(135deg,#9beaff9c,#238aff20 42%,#53dfff80);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:opacity .25s ease}
+.button:active:before,.button:active:after,.nav-cta:active:before,.nav-cta:active:after,.project-card:active:before,.project-card:active:after,.service-row:active:before,.service-row:active:after,.process-grid>div:active:before,.process-grid>div:active:after,.value-strip>div:active:before,.value-strip>div:active:after,.open-demo:active:before{opacity:1}
+.button:active,.nav-cta:active{box-shadow:0 0 0 1px #76d9ff66,0 0 22px var(--touch-blue),0 0 48px rgba(0,116,255,.2),inset 0 1px 0 #ffffff65}
+.project-card:active,.service-row:active,.process-grid>div:active,.value-strip>div:active{border-color:#8bdcff!important;box-shadow:0 0 0 1px #57baff35,0 0 26px var(--touch-blue),0 0 55px rgba(0,116,255,.16),inset 0 1px 0 #ffffff35}
+.open-demo:active{box-shadow:0 0 20px var(--touch-cyan),0 0 36px var(--touch-blue)}
+@media(hover:hover) and (pointer:fine){
+.button:hover,.nav-cta:hover{box-shadow:0 0 0 1px #75d7ff55,0 0 25px var(--touch-blue),0 12px 38px #006dff45,inset 0 1px 0 #ffffff55}
+.project-card:hover,.service-row:hover,.process-grid>div:hover,.value-strip>div:hover{box-shadow:0 0 0 1px #67c6ff38,0 0 28px rgba(24,137,255,.2),0 22px 55px #0005,inset 0 1px 0 #ffffff2c}
+.button:hover:before,.button:hover:after,.nav-cta:hover:before,.nav-cta:hover:after,.project-card:hover:before,.project-card:hover:after,.service-row:hover:before,.service-row:hover:after,.process-grid>div:hover:before,.process-grid>div:hover:after,.value-strip>div:hover:before,.value-strip>div:hover:after{opacity:1}
+}
+@media(hover:none),(pointer:coarse){
+.button,.nav-cta,.project-card,.service-row,.process-grid>div,.value-strip>div,.open-demo{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.button:active,.nav-cta:active{transform:scale(.965);filter:brightness(1.18)}
+.project-card:active,.service-row:active,.process-grid>div:active,.value-strip>div:active{transform:scale(.985);filter:brightness(1.12)}
+}
+@media(prefers-reduced-motion:reduce){.button:before,.button:after,.nav-cta:before,.nav-cta:after,.project-card:before,.project-card:after,.service-row:before,.service-row:after,.process-grid>div:before,.process-grid>div:after,.value-strip>div:before,.value-strip>div:after{transition:none}}
