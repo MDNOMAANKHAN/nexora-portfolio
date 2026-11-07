@@ -104,3 +104,31 @@ body:after{width:260px;height:260px;right:-140px;top:68%;background:#00bfe8;opac
 .project-card:active,.service-row:active,.process-grid>div:active,.value-strip>div:active{transform:scale(.985);filter:brightness(1.12)}
 }
 @media(prefers-reduced-motion:reduce){.button:before,.button:after,.nav-cta:before,.nav-cta:after,.project-card:before,.project-card:after,.service-row:before,.service-row:after,.process-grid>div:before,.process-grid>div:after,.value-strip>div:before,.value-strip>div:after{transition:none}}
+
+
+/* NEXORA — Professional technology company sections */
+.products{padding-top:105px;padding-bottom:105px;border-top:1px solid var(--line);background:linear-gradient(180deg,#07101d,#081525b8)}
+.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:42px}
+.product-tile{position:relative;overflow:hidden;padding:28px;border:1px solid var(--glass-edge);border-radius:20px;background:linear-gradient(145deg,rgba(21,53,87,.72),rgba(6,17,33,.82));box-shadow:0 18px 48px #0003,inset 0 1px 0 #ffffff20;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);transition:transform .28s,border-color .28s,box-shadow .28s}
+.product-tile:before{content:"";position:absolute;width:220px;height:220px;right:-90px;top:-110px;border-radius:50%;background:radial-gradient(circle,#168bff36,transparent 68%);pointer-events:none}
+.product-tile:hover{transform:translateY(-4px);border-color:#68c4ff80;box-shadow:0 22px 55px #0004,0 0 30px #168bff1c}
+.product-symbol{width:58px;height:58px;display:grid;place-items:center;margin-bottom:24px;border:1px solid #8bcfff70;border-radius:17px;background:linear-gradient(145deg,#1d76c75c,#09213e);box-shadow:0 0 28px #087bff24;font:700 20px var(--display);color:#eaf8ff}
+.product-symbol-agg{font-size:17px;letter-spacing:-.07em}.product-symbol-agg span{color:var(--cyan)}
+.product-symbol-med{font-size:34px;color:#8be8ff}
+.product-status{font-size:9px;letter-spacing:.16em;color:#82dfff;font-weight:700}
+.product-tile h3{font:600 25px var(--display);margin:9px 0}
+.product-tile p{max-width:500px;color:#a1b1c7;font-size:13px;line-height:1.8;margin-bottom:22px}
+.product-category{display:inline-block;padding:7px 10px;border:1px solid #8bbce733;border-radius:999px;background:#102b493d;color:#8faaca;font-size:9px;letter-spacing:.12em}
+.products-note{margin:18px 0 0;color:#71849e;font-size:10px}
+.trust{padding-top:100px;padding-bottom:100px;border-top:1px solid var(--line);background:radial-gradient(ellipse at 85% 20%,#0b65ad16,transparent 38%),#070f1b}
+.trust-heading{display:grid;grid-template-columns:1.1fr .9fr;gap:7%;align-items:end;margin-top:22px}
+.trust-heading h2{font-size:clamp(34px,4vw,53px);margin:0}
+.trust-heading>p{max-width:440px;color:#9aabc1;font-size:13px;line-height:1.9;margin:0 0 4px}
+.trust-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:42px}
+.trust-grid article{padding:22px 18px;border:1px solid var(--glass-edge);border-radius:16px;background:linear-gradient(150deg,#1430529e,#07132585);box-shadow:inset 0 1px 0 #ffffff16;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.trust-grid article>span{font:600 12px var(--display);color:var(--cyan)}
+.trust-grid h3{font:600 17px var(--display);margin:22px 0 8px}
+.trust-grid p{font-size:11px;line-height:1.8;color:#8fa1ba;margin:0}
+@media(max-width:900px){.trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.products,.trust{padding-top:75px;padding-bottom:75px}.product-grid{grid-template-columns:1fr;gap:13px;margin-top:30px}.product-tile{padding:23px;border-radius:17px}.trust-heading{display:block}.trust-heading>p{margin-top:20px}.trust-grid{grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}.trust-grid article{padding:17px 14px}.trust-grid h3{font-size:15px;margin-top:17px}}
+@media(max-width:390px){.trust-grid{grid-template-columns:1fr}}
