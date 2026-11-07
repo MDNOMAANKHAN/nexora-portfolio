@@ -175,7 +175,7 @@ body:after{width:260px;height:260px;right:-140px;top:68%;background:#00bfe8;opac
   pointer-events:none;
   transform:rotate(18deg);
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.075),transparent);
-  animation:navGlassSweep(11s) ease-in-out infinite;
+  animation:navGlassSweep 11s ease-in-out infinite;
 }
 @keyframes navGlassSweep{
   0%,58%{left:-65%;opacity:0}
