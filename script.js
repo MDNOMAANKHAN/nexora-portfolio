@@ -40,3 +40,34 @@ if (inquiryForm) {
     window.open(url, '_blank', 'noopener,noreferrer');
   });
 }
+
+
+/* Fluid glass tap feedback: electric-blue contour + soft light ripple */
+(() => {
+  const selector = 'a,button,.project-card,.service-row,.process-grid>div,.value-strip>div,.product-tile,.case-card,.trust-grid article,.float-card';
+  const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll(selector).forEach((element) => {
+    element.classList.add('nexora-interactive');
+    if (!element.querySelector(':scope > .nexora-contour')) {
+      const contour = document.createElement('span');
+      contour.className = 'nexora-contour';
+      contour.setAttribute('aria-hidden', 'true');
+      const ripple = document.createElement('span');
+      ripple.className = 'nexora-ripple';
+      ripple.setAttribute('aria-hidden', 'true');
+      element.append(contour, ripple);
+    }
+  });
+  if (reducedMotion) return;
+  document.addEventListener('pointerdown', (event) => {
+    const target = event.target.closest('.nexora-interactive');
+    if (!target) return;
+    const rect = target.getBoundingClientRect();
+    target.style.setProperty('--tap-x', ((event.clientX - rect.left) / rect.width * 100) + '%');
+    target.style.setProperty('--tap-y', ((event.clientY - rect.top) / rect.height * 100) + '%');
+    target.classList.remove('nexora-tapped');
+    void target.offsetWidth;
+    target.classList.add('nexora-tapped');
+    window.setTimeout(() => target.classList.remove('nexora-tapped'), 1100);
+  }, {passive:true});
+})();
