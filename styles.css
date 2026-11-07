@@ -219,3 +219,47 @@ body:after{width:260px;height:260px;right:-140px;top:68%;background:#00bfe8;opac
   }
 }
 @media(prefers-reduced-motion:reduce){.site-header:after{animation:none}}
+
+
+/* iOS-like micro-interactions: gentle press, glow and tactile response */
+:root{--ios-ease:cubic-bezier(.22,.8,.24,1)}
+.button,.nav-cta,.menu-toggle,.project-card,.service-row,.process-grid>div,.value-strip>div,.open-demo,.underlined-link{
+  transition:
+    transform .24s var(--ios-ease),
+    box-shadow .28s var(--ios-ease),
+    border-color .25s ease,
+    background-color .25s ease,
+    filter .25s ease;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
+.button:active,.nav-cta:active,.menu-toggle:active,.open-demo:active{
+  transform:scale(.955);
+  filter:brightness(1.16);
+}
+.project-card:active,.service-row:active,.process-grid>div:active,.value-strip>div:active{
+  transform:scale(.985);
+  filter:brightness(1.12);
+}
+.button:focus-visible,.nav-cta:focus-visible,.menu-toggle:focus-visible,.open-demo:focus-visible{
+  outline:2px solid rgba(119,218,255,.8);
+  outline-offset:3px;
+}
+@media(hover:hover) and (pointer:fine){
+  .button:hover,.nav-cta:hover,.menu-toggle:hover,.open-demo:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.08);
+  }
+  .project-card:hover,.service-row:hover,.process-grid>div:hover,.value-strip>div:hover{
+    transform:translateY(-3px);
+  }
+}
+@media(hover:none),(pointer:coarse){
+  .button:hover,.nav-cta:hover,.menu-toggle:hover,.open-demo:hover,
+  .project-card:hover,.service-row:hover,.process-grid>div:hover,.value-strip>div:hover{
+    transform:none;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .button,.nav-cta,.menu-toggle,.project-card,.service-row,.process-grid>div,.value-strip>div,.open-demo,.underlined-link{transition:none!important}
+}
